@@ -5,8 +5,8 @@
 #include "reader.h"
 #include "instruction.h"
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
+#include <iostream>
+#include <fstream>
 
 
 int* address(Registers *registers, char *operand, int memory[])
