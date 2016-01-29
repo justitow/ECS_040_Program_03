@@ -1,20 +1,12 @@
-//
-//  instruction.h
-//  Homework01
-//
-//  Created by Justin Weich on 1/6/16.
-//  Copyright © 2016 Justin Weich. All rights reserved.
-//
+#ifndef INSTRUCTION_H
+#define	INSTRUCTION_H
+// Author: Sean Davis
 
-#ifndef instruction_h
-#define instruction_h
-
-#include <stdio.h>
-
-typedef struct _Instruction
+typedef struct
 {
-    char* info;
-    int address;
+  int address;
+  char * info;
 } Instruction;
 
-#endif // instruction_h 
+#endif	// INSTRUCTION_H 
+

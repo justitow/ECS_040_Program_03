@@ -1,82 +1,100 @@
-//
-//  decoder.c
-//  Homework01
-//
-//  Created by Justin Weich on 1/6/16.
-//  Copyright © 2016 Justin Weich. All rights reserved.
-//
-
+// Author: Sean Davis
+#include <string.h>
+#include <stdio.h>
 #include "decoder.h"
-#include <stdlib.h>
+#include "instruction.h"
+#include "registers.h"
+#include "main.h"
 
-void addl(int* op1, int* op2)
+void addl(Decoder *decoder)
 {
-    *op2 = *op1 + *op2;
-} // addl ()
+  *decoder->operand2 = *decoder->operand1 + *decoder->operand2;
+}  // addl()
 
-void andl(int *op1, int *op2)
+void andl(Decoder *decoder)
 {
-    *op2 = *op1 & *op2;
-} //andl ()
+  *decoder->operand2 = *decoder->operand1 & *decoder->operand2;
+}  // andl()
 
-void leave(Registers *registers, int memory[])
+void execute(Decoder *decoder, Registers *registers, int memory[1001])
 {
-    enum {eax, ebp, esp, eip};
-    registers->regs[esp] = registers->regs[ebp];
-    registers->regs[esp] = memory[registers->regs[ebp]] + 4;
-} //leave ()
+  const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
+    "subl"};
+  enum OpcodeNum {ADDL, ANDL, LEAVE, MOVL, PUSHL, RET, SUBL};
+  int opcodeNum;
+  
+  for(opcodeNum = ADDL; 
+    strcmp(decoder->opcode, opcodes[opcodeNum]) != 0 || opcodeNum > SUBL;
+    ++opcodeNum);
+  
+  switch (opcodeNum)
+  {
+    case ADDL: addl(decoder); break;
+    case ANDL: andl(decoder); break;
+    case LEAVE: leave(registers, memory); break;
+    case MOVL: movl(decoder); break;
+    case PUSHL: pushl(decoder, registers, memory); break;
+    case RET: ret(registers, memory); break;
+    case SUBL: subl(decoder); break;
+    default: printf("Invalid opcode!\n");
+  } // switch on oncodeNum
+ 
+}  // execute()
 
-
-void movl(int *op1, int *op2)
+void leave(Registers *registers, int memory[1001])
 {
-    *op2 = *op1;
-} //movl ()
+  registers->regs[esp] = registers->regs[ebp];
+  registers->regs[ebp] = memory[registers->regs[esp]];
+  registers->regs[esp] += 4;
+}  // leave()
 
 
-
-void pushl(int *op1, int memory[], Registers *registers)
+void movl(Decoder *decoder)
 {
-    enum {eax, ebp, esp, eip};
-    registers->regs[esp] -= 4;
-    memory[registers->regs[esp]] = *op1;
-} //pushl ()
+  *decoder->operand2 = *decoder->operand1;
+}  // movl()
 
 
-void ret(Registers *registers, int memory[])
+void parse(Decoder *decoder, Instruction *instruction, Registers *registers, 
+           int memory[1001])
 {
-    enum {eax, ebp, esp, eip};
-    registers->regs[eip] = memory[registers->regs[esp]];
-    registers->regs[esp] += 4;
-} //ret ()
+  char *ptr, info[1000];
+  
+  strcpy(info, instruction->info);
+  
+  
+  strcpy(decoder->opcode, strtok(info, " "));
+  ptr = strtok(NULL, " ");
+  
+  if(ptr)
+  {
+    decoder->operand1 = address(registers, ptr, memory);
+    ptr = strtok(NULL, " ");
+    
+    if(ptr)
+      decoder->operand2 = address(registers, ptr, memory);
+  } // if there is at least one operand
+}  // parse()
 
 
-void subl(int *op1, int *op2)
+
+
+
+void pushl(Decoder *decoder, Registers *registers, int memory[1001])
 {
-    *op2 = *op2 - *op1;
-} //subl ()
+  registers->regs[esp] -= 4;
+  memory[registers->regs[esp]] = *decoder->operand1;
+}  // pushl()
 
-void parse_operand(Registers* registers, Decoder* decoder, int *memory)
+
+void ret(Registers *registers, int memory[1001])
 {
+  registers->regs[eip] = memory[registers->regs[esp]];
+  registers->regs[esp] += 4;
+}  // ret()
 
-    if(!(strcmp(decoder->opcode, "addl"))) //opcode is addl
-        addl(decoder->operand1, decoder->operand2);
 
-    if (!(strcmp(decoder->opcode, "andl"))) //opcode is andl
-        andl(decoder->operand1, decoder->operand2);
-
-    if(!(strcmp(decoder->opcode, "leave"))) //opcode is leave
-        leave(registers, memory);
-
-    if(!(strcmp(decoder->opcode, "movl"))) //opcode is movl
-        movl(decoder->operand1, decoder->operand2);
-
-    if(!(strcmp(decoder->opcode, "pushl"))) //opcode is pushl
-        pushl(decoder->operand1, memory, registers);
-
-    if(!(strcmp(decoder->opcode, "ret"))) //opcode is ret
-        ret(registers, memory);
-
-    if(!(strcmp(decoder->opcode, "subl"))) //opcode is subl
-        subl(decoder->operand1, decoder->operand2);
-} //parse_operand ()
-
+void subl(Decoder *decoder)
+{
+  *decoder->operand2 = *decoder->operand2 - *decoder->operand1;
+}  // subl()

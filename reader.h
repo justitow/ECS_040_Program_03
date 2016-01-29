@@ -1,27 +1,16 @@
-//
-//  reader.h
-//  Homework01
-//
-//  Created by Justin Weich on 1/6/16.
-//  Copyright © 2016 Justin Weich. All rights reserved.
-//
+#ifndef READER_H
+#define	READER_H
+// Author: Sean Davis
 
-#ifndef reader_h
-#define reader_h
-
-
-#include <stdio.h>
 #include "instruction.h"
 #include "registers.h"
 
-
-typedef struct Reader
+typedef struct
 {
-    Instruction lines[1000];
+  Instruction lines[1000];
 } Reader;
 
-void read_lines(Reader* reader, char* argv);
-void tab_to_ws(char* buffer);
-void newline_to_null(char* buffer);
+void fetch(Reader *reader, Instruction *instruction, Registers *registers);
+void read(Reader *reader, Registers *registers, const char *filename);
+#endif	// READER_H 
 
-#endif 

@@ -1,32 +1,27 @@
-//
-//  decoder.h
-//  Homework01
-//
-//  Created by Justin Weich on 1/6/16.
-//  Copyright © 2016 Justin Weich. All rights reserved.
-//
+#ifndef DECODER_H
+#define	DECODER_H
+// Author: Sean Davis
 
-#ifndef decoder_h
-#define decoder_h
-
-#include <stdio.h>
-#include <string.h>
+#include "instruction.h"
 #include "registers.h"
 
-typedef struct Decoder
+typedef struct
 {
-    char opcode[20];
-    int* operand1;
-    int* operand2;
+  char opcode[20];
+  int *operand1;
+  int *operand2;
 } Decoder;
 
 
-void addl(int* op1, int* op2);
-void andl(int *op1, int *op2);
-void leave(Registers *registers, int memory[]);
-void movl(int *op1, int *op2);
-void pushl(int *op1, int memory[], Registers *registers);
-void ret(Registers *registers, int memory[]);
-void subl(int *op1, int *op2);
-void parse_operand(Registers* registers, Decoder* decoder, int* memory);
-#endif
+void addl(Decoder *decoder);
+void andl(Decoder *decoder);
+void execute(Decoder *decoder, Registers *registers, int memory[1001]);
+void leave(Registers *registers, int memory[1001]);
+void movl(Decoder *decoder);
+void parse(Decoder *decoder, Instruction *instruction, Registers *registers, 
+           int memory[1001]);
+void pushl(Decoder *decoder, Registers *registers, int memory[1001]);
+void ret(Registers *registers, int memory[1001]);
+void subl(Decoder *decoder);
+#endif	// DECODER_H 
+
