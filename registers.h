@@ -11,10 +11,13 @@
 
 #include <stdio.h>
 
-typedef struct Registers
+typedef struct
 {
     int regs[4];
 } Registers;
 
+void initialize(Registers *registers, int memory[1001]);
+
+void print(Registers *registers, const char *instruction);
 
 #endif
