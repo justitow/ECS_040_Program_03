@@ -16,6 +16,8 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
+
+using namespace std;
     
     
 int* address(Registers *registers, char *operand, int memory[])
@@ -51,7 +53,7 @@ int* address(Registers *registers, char *operand, int memory[])
         
     } // address ()
     
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
     {
         Reader reader;
         Decoder decoder;
