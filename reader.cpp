@@ -1,10 +1,14 @@
 // Author: Sean Davis
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
 #include "main.h"
 #include "reader.h"
 #include "registers.h"
+
+using namespace std;
 
 void fetch(Reader *reader, Instruction *instruction, Registers *registers)
 {
@@ -20,10 +24,9 @@ void read(Reader *reader, Registers *registers, const char *filename)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
-  FILE *fp;
-  fp = fopen(filename, "r");
+  ifstream fp (filename);
   
-  while(fgets(line, 256, fp) != 0)
+  while(getline(fp, line) != 0)
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
       *ptr = ' ';  // replace all tabs with space characters

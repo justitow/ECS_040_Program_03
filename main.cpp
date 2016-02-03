@@ -7,15 +7,15 @@
 //
 
 #include <iostream>
-
+#include <fstream>
+#include <iomanip>
 
 #include "registers.h"
 #include "decoder.h"
 #include "reader.h"
 #include "instruction.h"
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
+
 
 using namespace std;
     
