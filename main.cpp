@@ -61,11 +61,11 @@ int main(int argc, const char * argv[])
         Instruction instruction;
         int memory [1001];
         initialize(&registers, memory);
-        read(&reader, &registers, argv[1]);
+        reader.read(&registers, argv[1]);
         
         while(registers.regs[eip] != 0)
         {
-            fetch(&reader, &instruction, &registers);
+            reader.fetch(&instruction, &registers);
             parse(&decoder, &instruction, &registers, memory);
             execute(&decoder, &registers, memory);
             print(&registers, instruction.info);

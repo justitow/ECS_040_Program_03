@@ -9,17 +9,17 @@
 
 using namespace std;
 
-void addl(Decoder *decoder)
+void Decoder::addl()
 {
-  *decoder->operand2 = *decoder->operand1 + *decoder->operand2;
+  *operand2 = *operand1 + *operand2;
 }  // addl()
 
-void andl(Decoder *decoder)
+void Decoder::andl()
 {
-  *decoder->operand2 = *decoder->operand1 & *decoder->operand2;
+  *operand2 = *operand1 & *operand2;
 }  // andl()
 
-void execute(Decoder *decoder, Registers *registers, int memory[1001])
+void Decoder::execute(Registers *registers, int memory[1001])
 {
   const char *opcodes[] = { "addl", "andl", "leave", "movl", "pushl", "ret",
     "subl"};
@@ -27,24 +27,24 @@ void execute(Decoder *decoder, Registers *registers, int memory[1001])
   int opcodeNum;
   
   for(opcodeNum = ADDL; 
-    strcmp(decoder->opcode, opcodes[opcodeNum]) != 0 || opcodeNum > SUBL;
+    strcmp(opcode, opcodes[opcodeNum]) != 0 || opcodeNum > SUBL;
     ++opcodeNum);
   
   switch (opcodeNum)
   {
-    case ADDL: addl(decoder); break;
-    case ANDL: andl(decoder); break;
+    case ADDL: addl(); break;
+    case ANDL: andl(); break;
     case LEAVE: leave(registers, memory); break;
-    case MOVL: movl(decoder); break;
-    case PUSHL: pushl(decoder, registers, memory); break;
+    case MOVL: movl(); break;
+    case PUSHL: pushl(registers, memory); break;
     case RET: ret(registers, memory); break;
-    case SUBL: subl(decoder); break;
+    case SUBL: subl(); break;
     default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
  
 }  // execute()
 
-void leave(Registers *registers, int memory[1001])
+void Decoder::leave(Registers *registers, int memory[1001])
 {
   registers->regs[esp] = registers->regs[ebp];
   registers->regs[ebp] = memory[registers->regs[esp]];
@@ -52,13 +52,13 @@ void leave(Registers *registers, int memory[1001])
 }  // leave()
 
 
-void movl(Decoder *decoder)
+void Decoder::movl()
 {
-  *decoder->operand2 = *decoder->operand1;
+  *operand2 = *operand1;
 }  // movl()
 
 
-void parse(Decoder *decoder, Instruction *instruction, Registers *registers, 
+void Decoder::parse(Instruction *instruction, Registers *registers,
            int memory[1001])
 {
   char *ptr, info[1000];
@@ -66,16 +66,16 @@ void parse(Decoder *decoder, Instruction *instruction, Registers *registers,
   strcpy(info, instruction->info);
   
   
-  strcpy(decoder->opcode, strtok(info, " "));
+  strcpy(opcode, strtok(info, " "));
   ptr = strtok(NULL, " ");
   
   if(ptr)
   {
-    decoder->operand1 = address(registers, ptr, memory);
+    operand1 = address(registers, ptr, memory);
     ptr = strtok(NULL, " ");
     
     if(ptr)
-      decoder->operand2 = address(registers, ptr, memory);
+      operand2 = address(registers, ptr, memory);
   } // if there is at least one operand
 }  // parse()
 
@@ -83,21 +83,21 @@ void parse(Decoder *decoder, Instruction *instruction, Registers *registers,
 
 
 
-void pushl(Decoder *decoder, Registers *registers, int memory[1001])
+void Decoder::pushl(Registers *registers, int memory[1001])
 {
   registers->regs[esp] -= 4;
-  memory[registers->regs[esp]] = *decoder->operand1;
+  memory[registers->regs[esp]] = *operand1;
 }  // pushl()
 
 
-void ret(Registers *registers, int memory[1001])
+void Decoder::ret(Registers *registers, int memory[1001])
 {
   registers->regs[eip] = memory[registers->regs[esp]];
   registers->regs[esp] += 4;
 }  // ret()
 
 
-void subl(Decoder *decoder)
+void Decoder::subl()
 {
-  *decoder->operand2 = *decoder->operand2 - *decoder->operand1;
+  *operand2 = *operand2 - *operand1;
 }  // subl()

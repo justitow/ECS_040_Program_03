@@ -6,12 +6,14 @@
 #include "registers.h"
 
 
-typedef struct
+class Reader
 {
-  Instruction lines[1000];
-} Reader;
+    Instruction lines[1000];
+public:
+    void fetch(Instruction *instruction, Registers *registers);
+    void read(Registers *registers, const char *filename);
+    
+};
 
-void fetch(Reader *reader, Instruction *instruction, Registers *registers);
-void read(Reader *reader, Registers *registers, const char *filename);
 #endif	// READER_H 
 

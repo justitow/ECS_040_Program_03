@@ -10,17 +10,17 @@
 
 using namespace std;
 
-void fetch(Reader *reader, Instruction *instruction, Registers *registers)
+void Reader::fetch(Instruction *instruction, Registers *registers)
 {
   int pos;
   
-  for(pos = 0; reader->lines[pos].address != registers->regs[eip]; pos++);
+  for(pos = 0; lines[pos].address != registers->regs[eip]; pos++);
   
-  *instruction = reader->lines[pos];
+  *instruction = lines[pos];
   registers->regs[eip] += 4;
 } // fetch()
 
-void read(Reader *reader, Registers *registers, const char *filename)
+void Reader::read(Registers *registers, const char *filename)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
@@ -37,10 +37,10 @@ void read(Reader *reader, Registers *registers, const char *filename)
     
     if(*ptr != '.' && !strstr(line, "main:"))
     {
-      reader->lines[instructionCount].address = address;
+      lines[instructionCount].address = address;
       address += 4;
-      reader->lines[instructionCount].info = (char*) malloc(strlen(ptr) + 1);
-      strcpy(reader->lines[instructionCount++].info, ptr);
+      lines[instructionCount].info = new char[strlen(ptr) + 1];
+      strcpy(lines[instructionCount++].info, ptr);
     } // if not directive, nor main:
   }  // while more in file
 }  // read()
