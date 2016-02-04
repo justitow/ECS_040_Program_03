@@ -15,7 +15,7 @@ class Decoder
     void andl();
     void leave(Registers *registers, const int memory[1001]);
     void movl();
-    void pushl(Registers *registers, const int memory[1001]);
+    void pushl(Registers *registers, int memory[1001]);
     void ret(Registers *registers, const int memory[1001]);
     void subl();
     
