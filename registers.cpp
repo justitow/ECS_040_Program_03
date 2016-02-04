@@ -17,7 +17,7 @@ void Registers::initialize(int memory[1001])
   memory[1000] = 0;
 }  // initialize()
 
-void Registers::print(const char *instruction)
+void Registers::print(const char *instruction) const
 {
     cout << left << setw(20) << instruction << " eip: "
     << setw(3) << regs[eip] << " eax: "
@@ -59,7 +59,7 @@ int* Registers::address(char *operand, int memory[])
     
 } // address ()
 
-int Registers::get(RegName reg)
+int Registers::get(RegName reg) const
 {
     return regs[reg];
 }
