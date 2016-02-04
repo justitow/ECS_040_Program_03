@@ -61,7 +61,8 @@ void Decoder::movl()
 }  // movl()
 
 
-void Decoder::parse(Instruction *instruction,Registers *registers,int memory[1001])
+void Decoder::parse(Instruction *instruction,
+                    Registers *registers, int memory[1001])
 {
   char *ptr, info[1000];
   
