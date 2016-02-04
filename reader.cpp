@@ -30,9 +30,7 @@ void Reader::read(Registers *registers, const char *filename)
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
       *ptr = ' ';  // replace all tabs with space characters
-    
-    //*strchr(line, '\n') = '\0';  // eliminate \n;
-    
+        
     for(ptr = line; *ptr == ' '; ptr++);  // get past leading spaces
     
     if(*ptr != '.' && !strstr(line, "main:"))

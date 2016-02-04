@@ -10,6 +10,7 @@
 #define registers_h
 
 #include <iostream>
+#include <cstring>
 
 
 class Registers
