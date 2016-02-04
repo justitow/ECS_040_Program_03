@@ -16,4 +16,4 @@ registers.o: registers.cpp registers.h instruction.h
 instruction.o: instruction.cpp instruction.h
 	g++ -Wall -ansi -c -g instruction.cpp
 clean:
-	rm -f CPU.out decoder.o  main.o  reader.o registers.o  
+	rm -f CPU.out decoder.o  main.o  reader.o registers.o instruction.o 
