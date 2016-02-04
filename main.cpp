@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <cstring>
 
 #include "registers.h"
 #include "decoder.h"
