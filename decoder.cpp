@@ -93,14 +93,14 @@ void Decoder::pushl(Registers *registers, int memory[1001])
 }  // pushl()
 
 
-void const Decoder::ret(Registers *registers, int memory[1001])
+void Decoder::ret(Registers *registers, const int memory[1001])
 {
     registers->set(Registers::eip, memory[registers->get(Registers::esp)]);
     registers->set(Registers::esp, registers->get(Registers::esp) + 4);
 }  // ret()
 
 
-void const Decoder::subl()
+void Decoder::subl()
 {
   *operand2 = *operand2 - *operand1;
 }  // subl()
