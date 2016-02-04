@@ -11,11 +11,9 @@ using namespace std;
 
 void Reader::fetch(Instruction *instruction, Registers *registers)
 {
-  int pos;
+  int pos = 0;
   
   for(pos = 0; lines[pos].getAdress() != registers->get(Registers::eip); pos++);
-
-  
   *instruction = lines[pos];
   registers->set(Registers::eip, registers->get(Registers::eip) + 4);
 } // fetch()
@@ -37,9 +35,9 @@ void Reader::read(Registers *registers, const char *filename)
     {
       
       lines[instructionCount].setAddress(address);
+      lines[instructionCount].setInfo(ptr);
+      instructionCount ++ ;
       address += 4;
-      lines[instructionCount].setInfo(ptr);      
-      
     } // if not directive, nor main:
   }  // while more in file
 }  // read()

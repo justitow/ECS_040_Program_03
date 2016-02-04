@@ -9,7 +9,7 @@ char* Instruction::getInfo() const
     return info;
     
 }
-int Instruction::getAdress() const
+int Instruction::getAdress()
 {
     return address;
 }
