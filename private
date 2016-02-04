@@ -1,0 +1,4 @@
+class Registers
+{
+    int regs[4];
+public:

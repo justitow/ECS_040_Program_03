@@ -1,5 +1,5 @@
 CPU.out : decoder.o main.o  reader.o registers.o 
-	g++ -Wall -ansi -c -o CPU.out decoder.o  main.o reader.o registers.o  
+	g++ -Wall -ansi -o CPU.out decoder.o  main.o reader.o registers.o  
 
 decoder.o: decoder.cpp decoder.h registers.h reader.h instruction.h
 	g++ -Wall -ansi -c -g decoder.cpp

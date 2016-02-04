@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstring>
+#include <cstdlib>
 #include "registers.h"
 
 using namespace std;

@@ -1,7 +1,5 @@
 reader.cpp:    //*strchr(line, '\n') = '\0';  // eliminate \n;
 Fatal design error: "\*" found.
-Fatal design error: struct, stdio, string.h, stdlib.h, malloc, free,
-printf, or fopen found in file(s).
 address not private in instruction.h
 info not private in instruction.h
 Default constructor of Instruction not found in instruction.h
@@ -13,8 +11,5 @@ setInfo( not found in instruction.h
 constant leave( not private in decoder.h
 constant pushl( not private in decoder.h
 constant ret() not private in decoder.h
-regs not private in registers.h
-address( not found in registers.h
 constant get( not found in registers.h
-set( not found in registers.h
 constant print( not found in registers.h
