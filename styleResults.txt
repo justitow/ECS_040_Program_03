@@ -12,7 +12,7 @@ Processing :  /home/jmweich/ECS_040_Program_03/decoder.cpp
 /home/jmweich/ECS_040_Program_03/decoder.cpp(65, 12):  Incorrect align on long parameter list in front of 'int', it should be aligen in column 21.  [RULE_4_1_C_align_long_function_parameter_list] 
 Processing :  /home/jmweich/ECS_040_Program_03/instruction.cpp
 Processing :  /home/jmweich/ECS_040_Program_03/registers.h
-/home/jmweich/ECS_040_Program_03/registers.h(33, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
+/home/jmweich/ECS_040_Program_03/registers.h(34, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/test1.c
 
 

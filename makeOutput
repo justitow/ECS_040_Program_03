@@ -2,4 +2,5 @@ g++ -Wall -ansi -c -g decoder.cpp
 g++ -Wall -ansi -c -g main.cpp
 g++ -Wall -ansi -c -g reader.cpp
 g++ -Wall -ansi -c -g registers.cpp
+g++ -Wall -ansi -c -g registers.cpp
 g++ -Wall -ansi -o CPU.out decoder.o  main.o reader.o registers.o  

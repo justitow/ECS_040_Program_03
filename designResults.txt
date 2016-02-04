@@ -1,5 +1,3 @@
-reader.cpp:    //*strchr(line, '\n') = '\0';  // eliminate \n;
-Fatal design error: "\*" found.
 address not private in instruction.h
 info not private in instruction.h
 Default constructor of Instruction not found in instruction.h
