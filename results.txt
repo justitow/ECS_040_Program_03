@@ -4,8 +4,9 @@ Note that format is: e-mail<comma>last name<comma>first name
 For example: ssdavis@ucdavis.edu,Davis,Sean
 
 Addresses used: davis@cs.ucdavis.edu ssdavis@ucdavis.edu   
-Style: 5 out of 11
-Design: 12 out of 25
-Operation: 14 out of 14
+Style: 0 out of 11
+Design: 20 out of 25
+Operation: 0 out of 14
 Warnings (subtracted from final score down to zero): 0
-Total: 31 out of 50.
+Your program did not work so you will only receive points for design.
+Total: 20 out of 50.

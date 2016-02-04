@@ -2,15 +2,20 @@ Processing :  /home/jmweich/ECS_040_Program_03/registers.cpp
 /home/jmweich/ECS_040_Program_03/registers.cpp(65, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 /home/jmweich/ECS_040_Program_03/registers.cpp(70, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/decoder.h
-/home/jmweich/ECS_040_Program_03/decoder.h(28, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
+/home/jmweich/ECS_040_Program_03/decoder.h(27, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/reader.cpp
 Processing :  /home/jmweich/ECS_040_Program_03/instruction.h
+/home/jmweich/ECS_040_Program_03/instruction.h(15, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/main.cpp
 Processing :  /home/jmweich/ECS_040_Program_03/reader.h
 /home/jmweich/ECS_040_Program_03/reader.h(16, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/decoder.cpp
 /home/jmweich/ECS_040_Program_03/decoder.cpp(65, 12):  Incorrect align on long parameter list in front of 'int', it should be aligen in column 21.  [RULE_4_1_C_align_long_function_parameter_list] 
 Processing :  /home/jmweich/ECS_040_Program_03/instruction.cpp
+/home/jmweich/ECS_040_Program_03/instruction.cpp(11, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
+/home/jmweich/ECS_040_Program_03/instruction.cpp(15, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
+/home/jmweich/ECS_040_Program_03/instruction.cpp(20, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
+/home/jmweich/ECS_040_Program_03/instruction.cpp(24, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/registers.h
 /home/jmweich/ECS_040_Program_03/registers.h(34, 0):  Right curly brackets must be commented.  [RULE_5_4_A_provide_comment_for_right_braces] 
 Processing :  /home/jmweich/ECS_040_Program_03/test1.c
@@ -20,13 +25,13 @@ Processing :  /home/jmweich/ECS_040_Program_03/test1.c
  ** Total Available Rules     : 52
  ** Total Applied Rules       : 31
  ** Total Violated Rules      : 2
- ** Total Errors Occurs       : 6
+ ** Total Errors Occurs       : 11
  ** Total Analyzed Files      : 10
- ** Total Violated Files Count: 5
- ** Build Quality             : 50.00%
+ ** Total Violated Files Count: 7
+ ** Build Quality             : 30.00%
 
 ================================ Violated Rule Details ===============================
  -  RULE_4_1_C_align_long_function_parameter_list rule violated : 1
- -  RULE_5_4_A_provide_comment_for_right_braces rule violated : 5
+ -  RULE_5_4_A_provide_comment_for_right_braces rule violated : 10
 
 ================================ Violated File Details ===============================

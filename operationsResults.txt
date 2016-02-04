@@ -1,10 +1,4 @@
 File#: 1
-Instruction string spacing: OK
-Instruction string values without spaces (1 point): OK
-Register string spacing (1 point): OK
-Register values without spaces (4 points): OK
+No output created so zero for operation.
 File#: 2
-Instruction string spacing: OK
-Instruction string values without spaces (1 point): OK
-Register string spacing (1 point): OK
-Register values without spaces (4 points): OK
+No output created so zero for operation.

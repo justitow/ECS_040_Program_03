@@ -3,11 +3,3 @@ info not private in instruction.h
 Default constructor of Instruction not found in instruction.h
 Destructor of Instruction not found in instruction.h
 constant getAddress() not found in instruction.h
-constant getInfo() not found in instruction.h
-setAddress( not found in instruction.h
-setInfo( not found in instruction.h
-constant leave( not private in decoder.h
-constant pushl( not private in decoder.h
-constant ret() not private in decoder.h
-constant get( not found in registers.h
-constant print( not found in registers.h
