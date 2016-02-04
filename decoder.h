@@ -11,13 +11,13 @@ class Decoder
     int *operand1;
     int *operand2;
     
-    void addl();
-    void andl();
-    void leave(Registers *registers, int memory[1001]);
-    void movl();
-    void pushl(Registers *registers, int memory[1001]);
-    void ret(Registers *registers, int memory[1001]);
-    void subl();
+    void const addl();
+    void const andl();
+    void const leave(Registers *registers, int memory[1001]);
+    void const movl();
+    void const pushl(Registers *registers, int memory[1001]);
+    void const ret(Registers *registers, int memory[1001]);
+    void const subl();
     
 public:
     void parse(Instruction *instruction, Registers *registers,
