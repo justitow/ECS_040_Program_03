@@ -12,7 +12,7 @@ public:
     int getAdress();
     void setInfo(const char* new_info);
     void setAddress(int new_address);
-};
+}; //Instruction
 
 #endif	// INSTRUCTION_H 
 

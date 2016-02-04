@@ -13,7 +13,7 @@ public:
     void fetch(Instruction *instruction, Registers *registers);
     void read(Registers *registers, const char *filename);
     
-};
+}; // Reader
 
 #endif	// READER_H 
 

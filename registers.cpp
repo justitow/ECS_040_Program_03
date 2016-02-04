@@ -62,9 +62,10 @@ int* Registers::address(char *operand, int memory[])
 int Registers::get(RegName reg) const
 {
     return regs[reg];
-}
+} //Registers::get()
 
 void Registers::set(RegName reg, int new_value)
 {
     regs[reg] = new_value;
-}
+} //Registers::set()
+

@@ -24,7 +24,7 @@ public:
     void execute(Registers *registers, int memory[1001]);
 
 
-};
+}; //Decoder
 
 
 #endif	// DECODER_H
