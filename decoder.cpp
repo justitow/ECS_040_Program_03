@@ -43,7 +43,7 @@ void Decoder::execute(Registers *registers, int memory[1001])
  
 }  // execute()
 
-void Decoder::leave(Registers *registers, const int memory[1001])
+void Decoder::leave(Registers *registers, const int memory[1001]) const
 {
   //registers->regs[esp] = registers->regs[ebp];
   //registers->regs[ebp] = memory[registers->regs[esp]];
@@ -86,14 +86,14 @@ void Decoder::parse(Instruction *instruction, Registers *registers,
 
 
 
-void Decoder::pushl(Registers *registers, int memory[1001])
+void Decoder::pushl(Registers *registers, int memory[1001]) const
 {
     registers->set(Registers::esp, registers->get(Registers::esp) - 4);
     memory[registers->get(Registers::esp)] = *operand1;
-}  // pushl()
+} // pushl()
 
 
-void Decoder::ret(Registers *registers, const int memory[1001])
+void Decoder::ret(Registers *registers, const int memory[1001]) const
 {
     registers->set(Registers::eip, memory[registers->get(Registers::esp)]);
     registers->set(Registers::esp, registers->get(Registers::esp) + 4);

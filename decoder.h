@@ -10,13 +10,12 @@ class Decoder
     char opcode[20];
     int *operand1;
     int *operand2;
-    
     void addl();
     void andl();
-    void leave(Registers *registers, const int memory[1001]);
+    void leave(Registers *registers, const int memory[1001]) const;
     void movl();
-    void pushl(Registers *registers, int memory[1001]);
-    void ret(Registers *registers, const int memory[1001]);
+    void pushl(Registers *registers, int memory[1001]) const;
+    void ret(Registers *registers, const int memory[1001]) const;
     void subl();
     
 public:
