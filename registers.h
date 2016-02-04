@@ -24,9 +24,9 @@ public:
     }RegName;
     
     void initialize(int memory[1001]);
-    void print(const char *instruction);
+    void print(const char *instruction) const;
     int* address(char *operand, int memory[]);
-    int get(RegName reg);
+    int get(RegName reg) const;
     void set(RegName reg, int new_value);
     
     
