@@ -13,7 +13,7 @@ void Reader::fetch(Instruction *instruction, Registers *registers)
 {
   int pos;
   
-  for(pos = 0; lines[pos].address != registers->get(Registers::eip); pos++);
+  for(pos = 0; lines[pos].getAdress() != registers->get(Registers::eip); pos++);
 
   
   *instruction = lines[pos];
@@ -35,10 +35,11 @@ void Reader::read(Registers *registers, const char *filename)
     
     if(*ptr != '.' && !strstr(line, "main:"))
     {
-      lines[instructionCount].address = address;
+      
+      lines[instructionCount].setAddress(address);
       address += 4;
-      lines[instructionCount].info = new char[strlen(ptr) + 1];
-      strcpy(lines[instructionCount++].info, ptr);
+      lines[instructionCount].setInfo(ptr);      
+      
     } // if not directive, nor main:
   }  // while more in file
 }  // read()

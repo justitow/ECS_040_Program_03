@@ -2,11 +2,17 @@
 #define	INSTRUCTION_H
 // Author: Sean Davis
 
-typedef struct
+class Instruction
 {
+private:
   int address;
   char * info;
-} Instruction;
+public:
+    char* getInfo() const;
+    int getAdress() const;
+    void setInfo(const char* new_info);
+    void setAddress(int new_address);
+};
 
 #endif	// INSTRUCTION_H 
 

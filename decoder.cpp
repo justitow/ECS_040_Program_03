@@ -66,7 +66,7 @@ void Decoder::parse(Instruction *instruction, Registers *registers,
 {
   char *ptr, info[1000];
   
-  strcpy(info, instruction->info);
+  strcpy(info, instruction->getInfo());
   
   
   strcpy(opcode, strtok(info, " "));

@@ -37,7 +37,7 @@ int main(int argc, const char * argv[])
             reader.fetch(&instruction, &registers);
             decoder.parse(&instruction, &registers, memory);
             decoder.execute(&registers, memory);
-            registers.print(instruction.info);
+            registers.print(instruction.getInfo());
         } // while eip not zero
         
         
