@@ -1,0 +1,13 @@
+Scores from p3 for Davis,Sean Davis,Steve , 
+
+Note that format is: e-mail<comma>last name<comma>first name
+For example: ssdavis@ucdavis.edu,Davis,Sean
+
+Addresses used: davis@cs.ucdavis.edu ssdavis@ucdavis.edu   
+Missing '-Wall' after each of the 6 g++ in Makefile, so presumed 14 warnings.
+Style: 7 out of 11
+Design: 5 out of 25
+Operation: 0 out of 14
+Warnings (subtracted from final score down to zero): 14
+Your program did not work so you will only receive points for design.
+Total: 5 out of 50.

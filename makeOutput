@@ -1,0 +1,24 @@
+g++ -Wall -ansi -c -g decoder.cpp
+g++ -Wall -ansi -c -g main.cpp
+main.cpp: In function ‘int* address(Registers*, char*, int*)’:
+main.cpp:35:37: error: ‘atoi’ was not declared in this scope
+             value = atoi(&operand[1]);
+                                     ^
+main.cpp:40:48: error: ‘strstr’ was not declared in this scope
+             if(strstr(operand, regNames[regNum]))
+                                                ^
+main.cpp:43:34: error: ‘strchr’ was not declared in this scope
+         ptr = strchr(operand, '(');
+                                  ^
+main.cpp:48:33: error: ‘atoi’ was not declared in this scope
+             index = atoi(operand);  // will return 0 if no number there!
+                                 ^
+main.cpp: In function ‘int main(int, const char**)’:
+main.cpp:69:61: error: ‘parse’ was not declared in this scope
+             parse(&decoder, &instruction, &registers, memory);
+                                                             ^
+main.cpp:70:49: error: ‘execute’ was not declared in this scope
+             execute(&decoder, &registers, memory);
+                                                 ^
+Makefile:8: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
