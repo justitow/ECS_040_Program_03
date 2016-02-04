@@ -1,10 +1,13 @@
 // Author: Sean Davis
-#include <string.h>
-#include <stdio.h>
+#include <iostream>
+#include <cstring>
+
 #include "decoder.h"
 #include "instruction.h"
 #include "registers.h"
 #include "main.h"
+
+using namespace std;
 
 void addl(Decoder *decoder)
 {
@@ -36,7 +39,7 @@ void execute(Decoder *decoder, Registers *registers, int memory[1001])
     case PUSHL: pushl(decoder, registers, memory); break;
     case RET: ret(registers, memory); break;
     case SUBL: subl(decoder); break;
-    default: printf("Invalid opcode!\n");
+    default: cout << "Invalid opcode!\n";
   } // switch on oncodeNum
  
 }  // execute()

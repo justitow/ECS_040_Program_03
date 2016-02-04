@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 
 #include "main.h"
 #include "reader.h"
@@ -24,14 +24,14 @@ void read(Reader *reader, Registers *registers, const char *filename)
 {
   char line[256], *ptr;
   int address = 100, instructionCount = 0;
-  ifstream fp (filename);
+  ifstream inf(filename);
   
-  while(getline(fp, line) != 0)
+  while(inf.getline(line, 255))
   {
     for(ptr = strchr(line, '\t'); ptr; ptr = strchr(line, '\t'))
       *ptr = ' ';  // replace all tabs with space characters
     
-    *strchr(line, '\n') = '\0';  // eliminate \n;
+    //*strchr(line, '\n') = '\0';  // eliminate \n;
     
     for(ptr = line; *ptr == ' '; ptr++);  // get past leading spaces
     
